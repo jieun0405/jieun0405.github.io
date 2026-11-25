@@ -1,107 +1,478 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research Portfolio</title>
+
+<title>Academic Portfolio</title>
 
 <style>
+:root {
+    --purple: #765995;
+    --dark-purple: #51386e;
+    --light-purple: #eee6f7;
+    --background: #faf8fc;
+    --border: #e4dced;
+    --text: #39343f;
+    --muted: #777080;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #faf9fc;
-    color: #333;
-    max-width: 850px;
-    margin: 60px auto;
-    padding: 25px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
     line-height: 1.8;
 }
 
-header {
-    border-bottom: 2px solid #d9cbed;
-    padding-bottom: 20px;
+nav {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-h1 {
-    color: #594575;
-    font-size: 36px;
+nav strong {
+    color: var(--dark-purple);
+    font-family: Georgia, serif;
+    font-size: 21px;
 }
 
-h2 {
-    color: #776293;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 8px;
+nav a {
+    color: var(--purple);
+    text-decoration: none;
+    margin-right: 16px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 65px;
+}
+
+.sidebar {
+    text-align: center;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--light-purple);
+    color: var(--purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    font-size: 44px;
+    margin: 0 auto 20px;
+}
+
+.sidebar h1 {
+    font-family: Georgia, serif;
+    color: var(--dark-purple);
+    font-size: 25px;
+    line-height: 1.4;
+}
+
+.sidebar p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: var(--purple);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 15px;
+    margin: 10px 0;
+}
+
+.sidebar a:hover {
+    background: var(--light-purple);
 }
 
 section {
-    margin-top: 35px;
+    margin-bottom: 42px;
+    scroll-margin-top: 30px;
 }
 
-a {
-    color: #776293;
+h2 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    color: var(--dark-purple);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 19px;
+    color: var(--dark-purple);
+    margin: 7px 0;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 14px;
 }
 
 .tag {
     display: inline-block;
-    background: #eee7f7;
-    padding: 5px 13px;
-    margin: 4px;
-    border-radius: 8px;
+    background: var(--light-purple);
+    color: var(--dark-purple);
+    padding: 6px 13px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin: 4px 3px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    margin: 18px 0;
+}
+
+.category {
+    color: var(--purple);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 7px;
 }
 
 footer {
-    margin-top: 60px;
-    color: #888;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding: 25px;
+    color: var(--muted);
     font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 25px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Research Portfolio</h1>
-    <p>Undergraduate Student in Artificial Intelligence</p>
-    <p>Ewha Womans University</p>
-</header>
+<nav>
+    <strong>Academic Portfolio</strong>
 
-<section>
-    <h2>About Me</h2>
-    <p>
-        I am an undergraduate student majoring in
-        Artificial Intelligence at Ewha Womans University.
-        I am interested in exploring AI methods
-        to solve meaningful real-world problems.
-    </p>
-</section>
+    <div>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+    </div>
+</nav>
 
-<section>
-    <h2>Research Interests</h2>
-    <span class="tag">Graph Mining</span>
-    <span class="tag">Medical AI</span>
-    <span class="tag">Natural Language Processing</span>
-</section>
+<div class="container">
 
-<section>
-    <h2>Education</h2>
-    <p>
-        <strong>Ewha Womans University</strong><br>
-        Department of Artificial Intelligence
-    </p>
-</section>
+    <aside class="sidebar">
 
-<section>
-    <h2>Projects</h2>
-    <h3>Wikipedia-based RAG System</h3>
-    <p>Natural Language Processing Course Project</p>
-    <ul>
-        <li>Wikipedia Search</li>
-        <li>Document Storage</li>
-        <li>Information Retrieval</li>
-    </ul>
-</section>
+        <div class="avatar">AI</div>
+
+        <h1>Academic Portfolio</h1>
+
+        <p>
+            Undergraduate Student<br>
+            Artificial Intelligence
+        </p>
+
+        <a href="https://github.com/jieun0405"
+           target="_blank" rel="noopener noreferrer">
+            GitHub
+        </a>
+
+    </aside>
+
+    <main>
+
+        <section id="about">
+
+            <h2>About Me</h2>
+
+            <p>
+                I am an undergraduate student majoring
+                in Artificial Intelligence.
+            </p>
+
+            <p>
+                My academic interests lie in the
+                mathematical foundations of AI,
+                particularly linear algebra, probability,
+                statistics, and data-driven learning methods.
+            </p>
+
+            <p>
+                I am interested in developing AI technologies
+                that address meaningful social challenges,
+                improve accessibility, and support underserved
+                communities.
+            </p>
+
+            <p>
+                I hope to deepen my understanding of machine
+                learning through research, experimentation,
+                and collaborative problem-solving.
+            </p>
+
+        </section>
+
+        <section id="research">
+
+            <h2>Research Interests</h2>
+
+            <span class="tag">AI for Social Good</span>
+            <span class="tag">Mathematical Foundations of AI</span>
+            <span class="tag">Graph Mining</span>
+            <span class="tag">Medical AI</span>
+            <span class="tag">Natural Language Processing</span>
+            <span class="tag">Accessibility</span>
+
+        </section>
+
+        <section id="projects">
+
+            <h2>Projects</h2>
+
+            <div class="card">
+
+                <div class="category">
+                    COURSE PROJECT · 2026
+                </div>
+
+                <h3>Wikipedia-based RAG System</h3>
+
+                <p class="subtitle">
+                    Retrieval-Augmented Generation
+                    | Natural Language Processing
+                </p>
+
+                <p>
+                    A team project exploring information
+                    retrieval methods for retrieval-augmented
+                    question answering.
+                </p>
+
+                <strong>My Contributions</strong>
+
+                <ul>
+                    <li>
+                        Implemented Wikipedia search and
+                        document collection.
+                    </li>
+
+                    <li>
+                        Integrated collected documents
+                        into a retrieval pipeline.
+                    </li>
+
+                    <li>
+                        Compared BM25, embedding-based,
+                        and hybrid retrieval methods.
+                    </li>
+
+                    <li>
+                        Conducted preliminary experiments
+                        to examine retrieval performance.
+                    </li>
+                </ul>
+
+                <span class="tag">Python</span>
+                <span class="tag">BM25</span>
+                <span class="tag">Embedding</span>
+                <span class="tag">RAG</span>
+
+            </div>
+
+        </section>
+
+        <section id="proposal">
+
+            <h2>Research Proposal</h2>
+
+            <div class="card">
+
+                <div class="category">
+                    PROPOSED RESEARCH · CONCEPT STAGE
+                </div>
+
+                <h3>
+                    AI-based Educational Resource Matching
+                    for Underserved Children
+                </h3>
+
+                <p>
+                    This proposed research explores how
+                    artificial intelligence can improve
+                    access to educational resources for
+                    underserved children.
+                </p>
+
+                <p>
+                    The proposed approach uses text
+                    embeddings, cosine similarity, and
+                    clustering to investigate personalized
+                    educational resource matching.
+                </p>
+
+                <strong>Proposed Methodology</strong>
+
+                <ul>
+                    <li>Educational resource data collection</li>
+                    <li>Text preprocessing and vectorization</li>
+                    <li>Similarity-based resource matching</li>
+                    <li>Clustering and quantitative evaluation</li>
+                </ul>
+
+                <span class="tag">Educational AI</span>
+                <span class="tag">Linear Algebra</span>
+                <span class="tag">Accessibility</span>
+
+            </div>
+
+        </section>
+
+        <section id="education">
+
+            <h2>Academic Background</h2>
+
+            <div class="card">
+
+                <h3>Artificial Intelligence</h3>
+
+                <p class="subtitle">
+                    Undergraduate Studies
+                </p>
+
+                <strong>Relevant Coursework</strong>
+
+                <ul>
+                    <li>Natural Language Processing</li>
+                    <li>Data Structures</li>
+                    <li>Linear Algebra</li>
+                    <li>Probability and Statistics</li>
+                    <li>Computer Algorithms</li>
+                    <li>Artificial Intelligence in Biomedical Sciences</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="experience">
+
+            <h2>Volunteer Activities</h2>
+
+            <div class="card">
+
+                <h3>AI Education for Older Adults</h3>
+
+                <p>
+                    Participated in volunteer activities
+                    introducing basic AI concepts to older
+                    adults and supporting digital accessibility.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Mathematics Education</h3>
+
+                <p>
+                    Participated in mathematics education
+                    volunteering at a community children's
+                    center, developing an interest in
+                    educational accessibility and technology.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="skills">
+
+            <h2>Technical Skills</h2>
+
+            <strong>Programming & Data Analysis</strong>
+
+            <p>
+                <span class="tag">Python</span>
+                <span class="tag">C</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">Pandas</span>
+            </p>
+
+            <strong>Mathematical Interests</strong>
+
+            <p>
+                <span class="tag">Linear Algebra</span>
+                <span class="tag">Probability</span>
+                <span class="tag">Statistics</span>
+                <span class="tag">Optimization</span>
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
 
 <footer>
-    Research Portfolio | 2026
+    Academic Portfolio &copy; 2026
 </footer>
 
 </body>
